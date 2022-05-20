@@ -16,17 +16,26 @@ public abstract class Conta implements IConta {
 	
 	@Override
 	public void sacar(double valor) {
-
+		if(valor <= saldo) {
+			saldo -= valor;
+		} else {
+			System.out.println("Não foi possível efetuar a operação. Saldo Insuficiente.");
+		}
 	}
 
 	@Override
 	public void depositar(double valor) {
-
+		saldo += valor;
 	}
 
 	@Override
 	public void transferir(double valor, Conta contaDestino) {
-
+		if(valor <= saldo) {
+			this.sacar(valor);
+			contaDestino.depositar(valor);
+		} else {
+			System.out.println("Não foi possível efetuar a operação. Saldo Insuficiente.");
+		}
 	}
 
 	public int getAgencia() {
