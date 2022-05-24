@@ -1,8 +1,6 @@
-package br.com.dio;
+package br.com.dio.model;
 
 import java.util.List;
-
-import br.com.dio.model.Conta;
 
 public class Banco {
 	
